@@ -1,25 +1,13 @@
-import logging #стандартна бібліотека для логування перебігу програми
-logging.basicConfig(level=logging.DEBUG,
-                    filename= "logs.log",
-                    filemode= 'w',
-                    format='%(asctime)s - %(levelname)s - %(message)s')
-logging.debug("debug")
-logging.info("info")
-logging.error("погано написав програму error")
-logging.warning("warning")
-logging.critical("critical")
-try:
-    print(10/0)
-except Exception:
-    logging.exception("Помилка")
-#факторіал числа
+#1
+import  logging
 
-def factorial(n):
-    logging.info(f'Розпочато обчислення факторіалу числа {n}')
-    result = 1
-    for i in range(1, n + 1):
-        result *= i #1*2*3...
-    logging.info(f'Обчислення факторіалу числа завершено {n}. Результат виконання {result}')
-    return result
-logging.basicConfig(level=logging.INFO)
-factorial(5)
+class Calculator:
+    def __init__(self):
+        self.logger = logging.getLogger("Calculator")
+        self.logger.setLevel(logging.INFO)
+        self.logger.addHandler(logging.StreamHandler())
+    def add(self, a, b):
+        result = a + b
+        self.logger.info(f" {a} + {b} = {result}")
+        return result
+
