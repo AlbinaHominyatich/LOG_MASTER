@@ -11,4 +11,15 @@ logging.critical("critical")
 try:
     print(10/0)
 except Exception:
-    logging.exception("Помилка(")
+    logging.exception("Помилка")
+#факторіал числа
+
+def factorial(n):
+    logging.info(f'Розпочато обчислення факторіалу числа {n}')
+    result = 1
+    for i in range(1, n + 1):
+        result *= i #1*2*3...
+    logging.info(f'Обчислення факторіалу числа завершено {n}. Результат виконання {result}')
+    return result
+logging.basicConfig(level=logging.INFO)
+factorial(5)
