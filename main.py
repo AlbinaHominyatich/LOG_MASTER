@@ -9,4 +9,5 @@ def rand_file(file_path, num):
                 file.write(str(data) + '\n')
                 #далі допишіть логування
     #не забудьте except
+#тут вам basic.Config
 rand_file("input_random.txt", int(input("Кількість згенерованих чисел: ")))
