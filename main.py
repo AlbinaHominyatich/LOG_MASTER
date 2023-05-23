@@ -1,25 +1,12 @@
-import logging #стандартна бібліотека для логування перебігу програми
-logging.basicConfig(level=logging.DEBUG,
-                    filename= "logs.log",
-                    filemode= 'w',
-                    format='%(asctime)s - %(levelname)s - %(message)s')
-logging.debug("debug")
-logging.info("info")
-logging.error("погано написав програму error")
-logging.warning("warning")
-logging.critical("critical")
-try:
-    print(10/0)
-except Exception:
-    logging.exception("Помилка")
-#факторіал числа
+import random
+import logging
 
-def factorial(n):
-    logging.info(f'Розпочато обчислення факторіалу числа {n}')
-    result = 1
-    for i in range(1, n + 1):
-        result *= i #1*2*3...
-    logging.info(f'Обчислення факторіалу числа завершено {n}. Результат виконання {result}')
-    return result
-logging.basicConfig(level=logging.INFO)
-factorial(5)
+def rand_file(file_path, num):
+    try:
+        with open(file_path, 'w') as file:
+            for i in range(num):
+                data = random.randint(1, 100)
+                file.write(str(data) + '\n')
+                #далі допишіть логування
+    #не забудьте except
+rand_file("input_random.txt", int(input("Кількість згенерованих чисел: ")))
