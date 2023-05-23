@@ -1,25 +1,13 @@
-import logging #стандартна бібліотека для логування перебігу програми
-logging.basicConfig(level=logging.DEBUG,
-                    filename= "logs.log",
-                    filemode= 'w',
-                    format='%(asctime)s - %(levelname)s - %(message)s')
-logging.debug("debug")
-logging.info("info")
-logging.error("погано написав програму error")
-logging.warning("warning")
-logging.critical("critical")
-try:
-    print(10/0)
-except Exception:
-    logging.exception("Помилка")
-#факторіал числа
+#2
+import logging
 
-def factorial(n):
-    logging.info(f'Розпочато обчислення факторіалу числа {n}')
-    result = 1
-    for i in range(1, n + 1):
-        result *= i #1*2*3...
-    logging.info(f'Обчислення факторіалу числа завершено {n}. Результат виконання {result}')
-    return result
-logging.basicConfig(level=logging.INFO)
-factorial(5)
+def write_file(fill_path, data):
+    try:
+        with open(fill_path, 'w') as file:
+            file.write(data)
+        #тут вам написати логгер про успішність запису в файл
+    except Exception as e:
+        logging.error(f'')#тут вам написати в якому файлі трапилася помилка і що саме {e}
+
+#тут вам basic.Config
+write_file("output.txt", input("Введіть що треба вписати в файл: "))
