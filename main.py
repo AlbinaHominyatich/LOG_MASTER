@@ -8,3 +8,7 @@ logging.info("info")
 logging.error("погано написав програму error")
 logging.warning("warning")
 logging.critical("critical")
+try:
+    print(10/0)
+except Exception:
+    logging.exception("Помилка(")
